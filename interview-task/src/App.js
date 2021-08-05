@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+
+function UserList(props) {
+  return (
+      <table width={'100%'}>
+        <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th>surname</th>
+          <th>country</th>
+          <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+  );
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h1>Interview task</h1>
+        <button>Colored rows</button>
+        <button>Sort by country</button>
+        <button>Restore the init state</button>
+        <UserList />
+      </div>
   );
 }
 
