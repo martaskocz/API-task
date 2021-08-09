@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.coloredRows tr:nth-child(odd) {
+   background: aqua;
+ }
+
+.coloredRows tr:nth-child(even) {
+  background: navajowhite;
+}
+
+.coloredRows tr:hover, .userRow:hover {
+  background: orange;
+}
