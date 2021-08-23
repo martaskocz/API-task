@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import cn from 'classnames';
 import './App.css';
 
 function UserList({users, deleteUser, coloredRows}) {
+
+   const colored = cn({
+       coloredRows: coloredRows
+   });
+
   return (
       <table width={'100%'}>
         <thead>
@@ -14,7 +20,7 @@ function UserList({users, deleteUser, coloredRows}) {
                 <th>delete</th>
             </tr>
         </thead>
-        <tbody className={coloredRows}>
+        <tbody className={colored}>
         {users.map((user) => (
             <tr className="userRow">
                 <th><img src={user.picture.thumbnail}/></th>
@@ -36,7 +42,7 @@ function App() {
     const [initialState, setInitialState] = useState([]);
     const [error, handleAPIError] = useState('');
     const [sortFlag, setSortFlag] = useState(false);
-    const [coloredRows, setColoredRows] = useState('');
+    const [coloredRows, setColoredRows] = useState(false);
 
     useEffect( () => {
         axios.get('https://randomuser.me/api?results=100')
@@ -54,9 +60,7 @@ function App() {
         setUsers(modifiedUsersList);
     };
 
-    const colorRows = () => {
-        coloredRows === '' ? setColoredRows('coloredRows') : setColoredRows('');
-    };
+    const colorRows = () => setColoredRows(!coloredRows);
 
     const sortByCountry = () => {
         const sortedUsers = [...usersList];
