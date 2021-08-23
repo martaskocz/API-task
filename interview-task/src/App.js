@@ -1,7 +1,7 @@
 import './App.css';
 import { CurrencyProvider, useCurrency, CURRENCIES } from "./ThemeContext";
 
-import React, from 'react';
+import React from 'react';
 
 const DATA = [
     {
