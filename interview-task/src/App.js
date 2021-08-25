@@ -1,33 +1,23 @@
 import './App.css';
-
-function UserList(props) {
-  return (
-      <table width={'100%'}>
-        <thead>
-        <tr>
-          <th>image</th>
-          <th>name</th>
-          <th>surname</th>
-          <th>country</th>
-          <th>delete</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-      </table>
-  );
-}
-
+import React, { useState } from 'react';
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+  const handleIncrease = () => {
+    setTimeout(() => setCount(count => count + 1), 1000);
+  };
+
+  const handleDecrease = () => {
+    setTimeout(() => setCount(count => count - 1), 1000);
+  };
+
   return (
       <div className="App">
-        <h1>Interview task</h1>
-        <button>Colored rows</button>
-        <button>Sort by country</button>
-        <button>Restore the init state</button>
-        <UserList />
+        Total: {count}
+        <button onClick={handleIncrease}>Increase State</button>
+        <button onClick={handleDecrease}>Decrease State</button>
       </div>
   );
 }
